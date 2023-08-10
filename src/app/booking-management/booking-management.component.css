@@ -1,0 +1,14 @@
+.formStyle{
+    margin:20px;
+}
+.search-bar{
+   
+    margin: 0px 0px 10px 650px;
+    width: 50px;
+}
+.single-select{
+    width: 350px;
+    height: 35px;
+    border:1px solid #D0D3D4 ;
+    border-radius: 5px;
+}

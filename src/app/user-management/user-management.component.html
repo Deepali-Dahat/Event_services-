@@ -1,0 +1,177 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">User Register</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                </li>
+
+            </ol>
+        </nav>
+    </div>
+    <div class="ms-auto">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" style="margin-right: 10px;" 
+            [routerLink]="'/dashboard/block-user'">
+                Blocked User </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    User Register</button>
+
+        </div>
+    </div>
+</div>
+<!--modal strt-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+<!--form strt-->
+<form [formGroup]="getNewUser" (ngSubmit)="GetNewRegi(getNewUser.value)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- <form [formGroup]="GetnewEvent" (ngSubmit)="getEvent(GetnewEvent.value)"> -->
+                <div class="">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" formControlName="name"
+                        placeholder="Enter your your name " />
+                </div>
+                <div class="">
+                    <label class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" formControlName="mobile_number"
+                        placeholder="Enter your contact number " />
+                </div>
+                <div class="">
+                    <label class="form-label">Mail</label>
+                    <input type="text" class="form-control" formControlName="email_id"
+                        placeholder="Enter your mail id " />
+                </div>
+                <div class="">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control" formControlName="password"
+                        placeholder="Enter your password " />
+                </div>
+                <div class="">
+                    <label class="form-label">Role</label>
+                    <input type="text" class="form-control" formControlName="role"
+                        placeholder="Enter your role " />
+                </div>
+                <!-- </form> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Register</button>
+            </div>
+
+        </div>
+    </form>
+<!--form end-->
+    </div>
+</div>
+<!--end modal-->
+<!--table strt-->
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <div>
+                <h6 class="mb-0">Users</h6>
+            </div>
+            
+        </div>
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead class="table-light">
+                    <tr >
+                        <th>Sr.no</th>
+                        <th>Name</th>
+                        <th>Mobile number</th>
+                        <th>Mail</th>
+                        <th>Register Date</th>
+                        <th>Action</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evnt of newUsertable | paginate:{
+                        itemsPerPage:tableSize,currentPage:page,totalItems:count};let i=index">
+                        <td>{{i+1}}</td>
+     <td>{{evnt.name}}</td>
+     <td>{{evnt.mobile_number}}</td>
+     <td>{{evnt.email_id}}</td>
+     <td>{{evnt.created_at | date}}</td>
+                        <td> 
+                            <i class="fadeIn animated bx bx-edit-alt"  style="margin-right: 10px;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="getUseData(evnt.id)"></i>
+                            <i class="fadeIn animated bx bx-user-x" data-bs-placement="bottom" 
+                            title="Block User" (click)="blocedUser(evnt.id)"></i>
+                        </td>
+                    </tr>
+
+                   
+
+
+
+
+
+                </tbody>
+            </table>
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+
+            </pagination-controls>
+        </div>
+    </div>
+</div>
+<!--table ends -->
+<!--scnd modal-->
+<!--modal strt-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+<!--form strt-->
+<form [formGroup]="getEdit" (ngSubmit)="GetEditeduser(getEdit.value)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- <form [formGroup]="GetnewEvent" (ngSubmit)="getEvent(GetnewEvent.value)"> -->
+                <div class="">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" formControlName="name"
+                        placeholder="Enter your your name " />
+                </div>
+                <div class="">
+                    <label class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" formControlName="mobile_number"
+                        placeholder="Enter your contact number " />
+                </div>
+                <div class="">
+                    <label class="form-label">Mail</label>
+                    <input type="text" class="form-control" formControlName="email_id"
+                        placeholder="Enter your mail id " />
+                </div>
+                <!-- <div class="">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control" formControlName="password"
+                        placeholder="Enter your password " />
+                </div>
+                <div class="">
+                    <label class="form-label">Role</label>
+                    <input type="text" class="form-control" formControlName="role"
+                        placeholder="Enter your role " />
+                </div> -->
+                <!-- </form> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+            </div>
+
+        </div>
+    </form>
+<!--form end-->
+    </div>
+</div>
+<!--end modal-->

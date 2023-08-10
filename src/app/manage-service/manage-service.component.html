@@ -1,0 +1,151 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Service Register</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                </li>
+
+            </ol>
+        </nav>
+    </div>
+    <div class="ms-auto">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Service</button>
+
+
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+<!--form strt-->
+<form [formGroup]="GetnewSerive" (ngSubmit)="getService(GetnewSerive.value)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- <form [formGroup]="GetnewEvent" (ngSubmit)="getEvent(GetnewEvent.value)"> -->
+                <div class="">
+                    <label class="form-label">Service Name</label>
+                    <input type="text" class="form-control" formControlName="service_name"
+                        placeholder="Enter your event " />
+                </div>
+                <div class="">
+                    <label class="form-label">Price</label>
+                    <input type="text" class="form-control" formControlName="price"
+                        placeholder="Enter your event " />
+                </div>
+                <div class="">
+                    <label for="inputAddress" class="form-label">Service Description</label>
+                    <textarea class="form-control" id="inputAddress" formControlName="service_description" 
+                    placeholder="Description..." rows="3"></textarea>
+                </div>
+                <!-- </form> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add Service</button>
+            </div>
+
+        </div>
+    </form>
+<!--form end-->
+    </div>
+</div>
+<!--table-->
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <div>
+                <h6 class="mb-0">Service</h6>
+            </div>
+            <div class="search-bar flex-grow-1">
+                <div class="position-relative search-bar-box">
+                    <input type="text" class="form-control search-control" [(ngModel)]="searchEvet"
+                        (input)=" getSearchEvent()" placeholder="Search...">
+
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Action</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evnt of newEventtable | paginate:{
+            itemsPerPage:tableSize,currentPage:page,totalItems:count} | searchPipe: searchEvet">
+                        <td>{{evnt.service_name}}</td>
+                        <td>{{evnt.price }}</td>
+                        <td>{{evnt.service_description }}</td>
+                        <td> 
+                            <i class="fadeIn animated bx bx-pencil"  style="margin-right: 10px;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="updateService(evnt.id)"></i>
+                            <i class="fadeIn animated bx bx-trash-alt" (click)="deleteItem(evnt.id)"></i>
+                        </td>
+                    </tr>
+
+                   
+
+
+
+
+
+                </tbody>
+            </table>
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+
+            </pagination-controls>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+<!--form strt-->
+<form [formGroup]="EditService" (ngSubmit)="getEditService(EditService.value)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- <form [formGroup]="GetnewEvent" (ngSubmit)="getEvent(GetnewEvent.value)"> -->
+                    <div class="">
+                        <label class="form-label">Service Name</label>
+                        <input type="text" class="form-control" formControlName="service_name"
+                            placeholder="Enter your event " />
+                    </div>
+                    <div class="">
+                        <label class="form-label">Price</label>
+                        <input type="text" class="form-control" formControlName="price"
+                            placeholder="Enter your event " />
+                    </div>
+                    <div class="">
+                        <label for="inputAddress" class="form-label">Service Description</label>
+                        <textarea class="form-control" id="inputAddress" formControlName="service_description" placeholder="Address..." rows="3"></textarea>
+                    </div>
+                <!-- </form> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update Service</button>
+            </div>
+
+        </div>
+    </form>
+<!--form end-->
+    </div>
+</div>

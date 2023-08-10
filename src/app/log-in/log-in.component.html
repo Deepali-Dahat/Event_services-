@@ -1,0 +1,194 @@
+
+
+<!-- wrapper -->
+<div class="wrapper">
+  <div class="authentication-reset-password d-flex align-items-center justify-content-center">
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-lg-5 border-end">
+              <div class="card-body">
+                <div class="p-5">
+                  <div class="text-start">
+                    <!-- <img src="assets/images/logo-img.png" width="180" alt=""> -->
+                  </div>
+                  <form [formGroup]="GetnewUser" (ngSubmit)="getLogin(GetnewUser.value)">
+                  <h4 class="mt-5 font-weight-bold">Log In To Book Your Events</h4>
+                  <p class="text-muted">Please enter your email & password!</p>
+                  <div class="mb-3 mt-5">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" formControlName="email_id" 
+                    placeholder="Enter email " />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control" formControlName="password"
+                    placeholder="Enter your password" />
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Log In</button> 
+                    <a [routerLink]="'/forgotpassword'" class="btn btn-light">
+                    Forgot Password? </a>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card" style="margin-top: 50px;">
+                <div class="card-body">
+                  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="./assets/pexels-asad-photo-maldives-169190.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                         
+                         
+                        </div>
+                      </div>
+                      <div class="carousel-item" data-bs-interval="2000">
+                        <img src="./assets/pexels-ivan-57980.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                         
+                          
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/pexels-joel-paim-2291462.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          
+                         
+                        </div>
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- <img src="assets/images/login-images/forgot-password-frent-img.jpg" 
+              class="card-img login-img h-100" alt="..."> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section>
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-md-5">
+          <div class="">
+            <div class="row" style="margin-top: 70px;margin-left: 50px;">
+              <div class="col-md-2">
+                 <img src="./assets/2357944.jpg" alt="" width="50" height="50" style="margin-left: 40px;">
+              </div>
+              <div class="col-md-5" style="margin-left: 20px;">
+               <h6 style="font-size: 14px;text-decoration: underline;">ROYAL EVENT SOFTWARE</h6>
+               <p style="font-size: 14px;">PROJECT DEVELOPED BY <span style="background-color: black;color:white;">NIKHIL B.</span></p>
+              
+              </div>
+              <div class="col-md-5">
+               
+              </div>
+   
+           </div>
+           <div class="row">
+            <div class="col">
+              <div class="">
+                <h6 style="margin-left: 180px;color:#C0C0C0;font-family: 'Roboto', sans-serif;">
+                  <strong><em>Welcome Administrator !</em></strong></h6>
+                <form  [formGroup]="GetnewUser" (ngSubmit)="getLogin(GetnewUser.value)"
+                style="margin-top: 30px;margin-left: 70px;">
+                  <input type="text" formControlName="email_id" placeholder="Username"
+                  style="width: 390px;height: 80px;padding-left: 10px;
+                    border:1px solid #C1CDCD;border-radius: 6px 6px 0px 0px;" required><br/>
+                  <input type="password" formControlName="password" placeholder="Password"
+                  style="width: 390px;height: 80px;padding-left: 10px;
+                    border:1px solid #C1CDCD;border-radius: 0px 0px 6px 6px;" required>
+                  <br/>
+                  <button class="button-style" typle="submit">SIGN IN </button>
+                 
+                </form>
+                
+                <div class="LinkStyle">
+                    <a [routerLink]="'/forgotpassword'" class="LinkStyle">Forgot Password?</a>
+                </div>
+               
+              </div>
+            </div>
+           </div>
+         
+          </div>
+        </div>
+        <div class="col-md-7" style="margin-top: 10px;">
+          <div class="" >
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./assets/pexels-asad-photo-maldives-169190.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/pexels-ivan-57980.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/pexels-joel-paim-2291462.jpg" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p style="margin-left: 40px;margin-top:5px;">CopyRight &#169; 2022 Project Develop by <span style="color:skyblue">Nikhil Bhalerao</span></p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
