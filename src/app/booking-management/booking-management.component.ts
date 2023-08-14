@@ -13,7 +13,7 @@ import { SharinIdServiceService } from '../services/sharin-id-service.service';
 })
 export class BookingManagementComponent implements OnInit{
   EditBooking!:FormGroup;
-
+  submitted = false; 
   constructor(private fb:FormBuilder,private bookningService:BookingServiceService,
     private manageEvent:ManageEventServiceService,private manageService:ManageServiceServiceService,
     private sharingService:SharinIdServiceService){
@@ -53,7 +53,10 @@ export class BookingManagementComponent implements OnInit{
       status:  ['', Validators.required]
   })
 
-
+  get name() {
+    return this.GetnewBooking.get('name'); 
+    
+  }
 
   page:number = 1;
   count:number=0;
@@ -86,6 +89,7 @@ onTableSizeChange(event:any):void{
  // this.getNewTable();
 }
   getBooking(data:Addbooking){
+    //this.submitted = true; 
     this.bookningService.addBooking(data).subscribe((res:any)=>{
       console.log('add booking',res)
       if(res && res.code === 200){

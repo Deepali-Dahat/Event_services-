@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import {LogIn} from '../data-type';
 import {LoginServiceService} from '../services/login-service.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { AuthServiceService } from '../services/auth-service.service';
+
+
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -10,7 +14,8 @@ import {Router} from '@angular/router'
 })
 export class LogInComponent implements OnInit{
   GetnewUser!:FormGroup;
-  constructor(private fb:FormBuilder,private logservice:LoginServiceService,private router:Router){
+  constructor(private fb:FormBuilder,private logservice:LoginServiceService,private router:Router,
+    private authService:AuthServiceService){
 this.GetnewUser=this.fb.group({
   email_id: ['', Validators.required],
   password: ['', Validators.required],
@@ -27,10 +32,17 @@ this.logservice.LogInService(data).subscribe({
          alert(res.message)
          const token = res.data;  
          localStorage.setItem('token', token);
+         //my
+         this.authService.setLoggedIn(true);
+        // Convert token to a boolean value
+
+   
          this.router.navigate(['dashboard/home'])
+
     }
     else(res.code == 400)
     {
+     
       alert(res.message)
     }
 

@@ -35,11 +35,19 @@
                         <label class="form-label">Full Name</label>
                         <input type="text" class="form-control" formControlName="name"
                             placeholder="Enter your name " />
+                            <div *ngIf="GetnewBooking.get('name')?.hasError('required') && GetnewBooking.get('name')?.touched" 
+                            class="text-danger">
+                                 Name is required.
+                              </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Email</label>
                         <input type="text" class="form-control" formControlName="email_id"
                             placeholder="Enter your mail id " />
+                            <div *ngIf="GetnewBooking.get('email_id')?.hasError('required') && GetnewBooking.get('email_id')?.touched" 
+                            class="text-danger">
+                                 Email is required.
+                              </div>
                     </div>
                 </div>
                 <div class="row">
@@ -47,11 +55,19 @@
                         <label class="form-label">Contact No</label>
                         <input type="text" class="form-control" formControlName="mobile_number"
                             placeholder="Enter your contact number" />
+                            <div *ngIf="GetnewBooking.get('mobile_number')?.hasError('required') && GetnewBooking.get('mobile_number')?.touched" 
+                            class="text-danger">
+                                 Phone number is required.
+                              </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Event Date</label>
                         <input type="date" class="form-control" formControlName="eventDate"
                             placeholder="Enter your event date " />
+                            <div *ngIf="GetnewBooking.get('eventDate')?.hasError('required') && GetnewBooking.get('eventDate')?.touched" 
+                            class="text-danger">
+                                 Event Date is required.
+                              </div>
                     </div>
                 </div>
                 <div class="row">
@@ -59,11 +75,19 @@
                         <label class="form-label">Event Starting Time</label>
                         <input type="time" class="form-control" formControlName="event_starting_time"
                             placeholder="Enter your event starting time " />
+                            <div *ngIf="GetnewBooking.get('event_starting_time')?.hasError('required') && GetnewBooking.get('event_starting_time')?.touched" 
+                            class="text-danger">
+                                 Event Starting time is required.
+                              </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Event Finish Time</label>
                         <input type="time" class="form-control" formControlName="event_finish_time"
                             placeholder="Enter your event finish time " />
+                            <div *ngIf="GetnewBooking.get('event_finish_time')?.hasError('required') && GetnewBooking.get('event_finish_time')?.touched" 
+                            class="text-danger">
+                                 Event Finish time is required.
+                              </div>
                     </div>
                 </div>
                 <div class="row">
@@ -71,6 +95,10 @@
                         <label for="inputAddress" class="form-label">Venue Address</label>
                     <textarea class="form-control" id="inputAddress" formControlName="address" 
                     placeholder="Enter your venue address here" rows="1"></textarea>
+                    <div *ngIf="GetnewBooking.get('address')?.hasError('required') && GetnewBooking.get('address')?.touched" 
+                            class="text-danger">
+                                 Event address is required.
+                              </div>
                     </div>
                 </div>
                 <div class="row">

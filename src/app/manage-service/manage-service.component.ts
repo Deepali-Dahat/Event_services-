@@ -20,6 +20,7 @@ this.EditService=this.fb.group({
   service_description: [''],
 })
 }
+
   ngOnInit(): void {
    this.getEventtable();
    this.getSearchEvent();
@@ -30,7 +31,7 @@ this.EditService=this.fb.group({
     price: ['', Validators.required],
     service_description: ['', Validators.required],
   })
-
+  
 
   // CategoryData: FormGroup = this.fb.group({
   //   name: ['', [Validators.required]],

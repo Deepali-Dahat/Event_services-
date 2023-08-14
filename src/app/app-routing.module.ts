@@ -12,14 +12,14 @@ import { CompanyComponent } from './company/company.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BlockUserComponent } from './block-user/block-user.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'login',component:LogInComponent},
-  {path:'dashboard',component:DashboardComponent,children:[
-    {
-path:'home',component:HomeComponent
-  },
+  {path:'dashboard',component:DashboardComponent,canActivate: [AuthGuardGuard],
+  children:[
+    {path:'home',component:HomeComponent,canActivate: [AuthGuardGuard]},
   {path:'manage-event',component:ManageEventComponent},
   {path:'manageservice',component:ManageServiceComponent},
   {path:'bookingmanage',component:BookingManagementComponent},
